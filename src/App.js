@@ -1,14 +1,26 @@
 import { Button, Navbar, Container, Nav } from "react-bootstrap";
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import data from "./data.js";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./pages/Detail";
 
 function App() {
-  let [shoes, setShoes] = useState(data);
+  const [shoes, setShoes] = useState(data);
+  const [alert, setAlert] = useState(true);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setTimeout(() => {
+      setAlert(false);
+    }, 2000);
+  });
+
+  const sale2Second = () => {
+    return alert === true ? (
+      <div className="alert alert-warning">2초 이내 구매시 할인</div>
+    ) : null;
+  };
   return (
     <div className="App">
       <div>
@@ -28,6 +40,7 @@ function App() {
           </Container>
         </Navbar>
       </div>
+      {sale2Second()}
       <div className="main-bg"></div>
       <div className="main-contents mt-3">
         <Routes>
