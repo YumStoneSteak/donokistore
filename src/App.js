@@ -8,19 +8,30 @@ import Detail from "./pages/Detail";
 function App() {
   const [shoes, setShoes] = useState(data);
   const [alert, setAlert] = useState(true);
+  const [text, setText] = useState("a");
+  const [textBox, setTextBox] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTimeout(() => {
+    let a = setTimeout(() => {
       setAlert(false);
     }, 2000);
-  });
+    return () => {
+      clearTimeout(a);
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log(text);
+    setTextBox(isNaN(text) == true ? "글자를 입력해주세요" : "숫자는 빼주세요");
+  }, [text]);
 
   const sale2Second = () => {
     return alert === true ? (
-      <div className="alert alert-warning">2초 이내 구매시 할인</div>
+      <div className="alert alert-warning">⭐2초 이내 구매시 할인⭐</div>
     ) : null;
   };
+
   return (
     <div className="App">
       <div>
@@ -67,6 +78,15 @@ function App() {
           </Route>
           <Route path="*" element={<h1>404 page</h1>}></Route>
         </Routes>
+        <div className="input">
+          <div>{textBox}</div>
+          <input
+            type="text"
+            onChange={(e) => {
+              setText(e.target.value);
+            }}
+          />
+        </div>
       </div>
     </div>
   );
