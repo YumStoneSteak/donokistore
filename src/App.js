@@ -1,15 +1,18 @@
-import { Button, Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import "./App.css";
 import { useState, useEffect } from "react";
 import data from "./data.js";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./pages/Detail";
+import axios from "axios";
 
 function App() {
   const [shoes, setShoes] = useState(data);
   const [alert, setAlert] = useState(true);
   const [text, setText] = useState("a");
   const [textBox, setTextBox] = useState("");
+  const [showMsg, setShowMsg] = useState(false);
+  const [clickCount, setClickCount] = useState(1);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,15 +24,43 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    console.log(text);
-    setTextBox(isNaN(text) == true ? "글자를 입력해주세요" : "숫자는 빼주세요");
-  }, [text]);
-
   const sale2Second = () => {
     return alert === true ? (
-      <div className="alert alert-warning">⭐2초 이내 구매시 할인⭐</div>
+      <div className="alert alert-warning mb-0">⭐2초 이내 구매시 할인⭐</div>
     ) : null;
+  };
+
+  useEffect(() => {
+    setTextBox(
+      isNaN(text) === true ? "글자를 입력해주세요" : "숫자는 빼주세요"
+    );
+  }, [text]);
+
+  const loadingMsg = (showMsg) => {
+    return showMsg === true ? <div>loading...</div> : null;
+  };
+
+  const loadShoes = () => {
+    if (clickCount < 3) {
+      axios
+        .get(`https://codingapple1.github.io/shop/data${clickCount + 1}.json`)
+        .then((resault) => {
+          const newShoes = shoes.concat(resault.data);
+          // const newShoes = [...shoes, ...resault.data];
+          setShoes(newShoes);
+        })
+        .catch(() => {
+          console.log("실패");
+        });
+    }
+  };
+
+  const moreBtn = () => {
+    setClickCount(clickCount + 1);
+    console.log(clickCount);
+    setShowMsg(true);
+    loadShoes(clickCount);
+    setShowMsg(false);
   };
 
   return (
@@ -52,7 +83,7 @@ function App() {
         </Navbar>
       </div>
       {sale2Second()}
-      <div className="main-bg"></div>
+      <div className="main-bg" />
       <div className="main-contents mt-3">
         <Routes>
           <Route
@@ -64,6 +95,13 @@ function App() {
                     <ShoesList key={index} item={item} />
                   ))}
                 </div>
+                {loadingMsg(showMsg)}
+                <button
+                  className="btn btn-success m-2"
+                  onClick={() => moreBtn()}
+                >
+                  see more
+                </button>
               </div>
             }
           />
