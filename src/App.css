@@ -43,7 +43,7 @@ a {
 
 .main-bg {
   height: 300px;
-  background-image: url("./bg.png");
+  background-image: url("./asset/bg.png");
   background-size: cover;
   background-position: center;
 }

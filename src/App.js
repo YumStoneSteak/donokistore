@@ -1,10 +1,11 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import "./App.css";
 import { useState, useEffect } from "react";
-import data from "./data.js";
+import axios from "axios";
+import data from "./data/data.js";
 import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
 import Detail from "./pages/Detail";
-import axios from "axios";
+import Cart from "./pages/Cart";
 
 function App() {
   const [shoes, setShoes] = useState(data);
@@ -56,9 +57,8 @@ function App() {
   };
 
   const moreBtn = () => {
-    setClickCount(clickCount + 1);
-    console.log(clickCount);
     setShowMsg(true);
+    setClickCount(clickCount + 1);
     loadShoes(clickCount);
     setShowMsg(false);
   };
@@ -102,10 +102,16 @@ function App() {
                 >
                   see more
                 </button>
+                <button
+                  className="btn btn-success m-2"
+                  onClick={() => navigate("/cart")}
+                >
+                  Cart
+                </button>
               </div>
             }
           />
-          <Route path="/detail/:id" element={<Detail shoes={shoes} />}></Route>;
+          <Route path="/detail/:id" element={<Detail shoes={shoes} />}></Route>
           <Route path="/event" element={<Event />}>
             <Route path="one" element={<h3>첫 주문시 양배추즙 서비스</h3>} />
             <Route path="two" element={<h3>생일기념 쿠폰받기</h3>} />
@@ -114,6 +120,7 @@ function App() {
             <Route path="member" element={<div>멤버들</div>} />
             <Route path="location" element={<div>회사위치</div>} />
           </Route>
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<h1>404 page</h1>}></Route>
         </Routes>
         <div className="input">
