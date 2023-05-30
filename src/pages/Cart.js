@@ -1,5 +1,9 @@
 import { Table } from "react-bootstrap";
+import { useSelector } from "react-redux";
+import { setCountPlus } from "../data/store";
+
 const Cart = () => {
+  const state = useSelector((state) => state);
   return (
     <Table>
       <thead>
@@ -11,12 +15,16 @@ const Cart = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>1</td>
-          <td>안녕</td>
-          <td>안녕</td>
-          <td>안녕</td>
-        </tr>
+        {state.cart.map((item, index) => (
+          <tr key={index}>
+            <td>{index + 1}</td>
+            <td>{item.name}</td>
+            <td>{item.count}</td>
+            <td>
+              <button onClick={setCountPlus}>+</button>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </Table>
   );

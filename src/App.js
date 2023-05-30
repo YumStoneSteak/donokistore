@@ -78,6 +78,7 @@ function App() {
               <Nav.Link onClick={() => navigate("/event/two")}>
                 Event 2
               </Nav.Link>
+              <Nav.Link onClick={() => navigate("/cart")}>Cart</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
