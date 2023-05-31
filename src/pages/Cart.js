@@ -1,27 +1,42 @@
 import { Table } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import { setCountPlus } from "../data/store";
+import { useDispatch, useSelector } from "react-redux";
+import { addCount, minCount } from "../data/store";
 
 const Cart = () => {
   const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+
   return (
     <Table>
       <thead>
         <tr>
           <th>#</th>
-          <th>상품명</th>
-          <th>수량</th>
-          <th>변경하기</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quatity</th>
+          <th>Change</th>
         </tr>
       </thead>
       <tbody>
         {state.cart.map((item, index) => (
-          <tr key={index}>
+          <tr key={item.id}>
             <td>{index + 1}</td>
             <td>{item.name}</td>
+            <td>₩{item.price}</td>
             <td>{item.count}</td>
             <td>
-              <button onClick={setCountPlus}>+</button>
+              <button
+                className="btn btn-success m-1"
+                onClick={() => dispatch(addCount(item.id))}
+              >
+                +
+              </button>
+              <button
+                className="btn btn-success m-1"
+                onClick={() => dispatch(minCount(item.id))}
+              >
+                -
+              </button>
             </td>
           </tr>
         ))}

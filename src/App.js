@@ -1,4 +1,11 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
+import {
+  Navbar,
+  Container,
+  Nav,
+  ButtonGroup,
+  Button,
+  Card,
+} from "react-bootstrap";
 import "./App.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -15,7 +22,7 @@ function App() {
   const [showMsg, setShowMsg] = useState(false);
   const [clickCount, setClickCount] = useState(1);
   const navigate = useNavigate();
-
+  // const publicUrl = process.env.PUBLIC_URL;
   useEffect(() => {
     let a = setTimeout(() => {
       setAlert(false);
@@ -72,19 +79,14 @@ function App() {
             <Nav className="me-auto">
               <Nav.Link onClick={() => navigate("/about")}>About</Nav.Link>
               <Nav.Link onClick={() => navigate(-1)}>Go back</Nav.Link>
-              <Nav.Link onClick={() => navigate("/event/one")}>
-                Event 1
-              </Nav.Link>
-              <Nav.Link onClick={() => navigate("/event/two")}>
-                Event 2
-              </Nav.Link>
+              <Nav.Link onClick={() => navigate("/event/one")}>Event</Nav.Link>
               <Nav.Link onClick={() => navigate("/cart")}>Cart</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
       </div>
       {sale2Second()}
-      <div className="main-bg" />
+      <div className="main-bg"></div>
       <div className="main-contents mt-3">
         <Routes>
           <Route
@@ -97,18 +99,14 @@ function App() {
                   ))}
                 </div>
                 {loadingMsg(showMsg)}
-                <button
-                  className="btn btn-success m-2"
-                  onClick={() => moreBtn()}
-                >
-                  see more
-                </button>
-                <button
-                  className="btn btn-success m-2"
-                  onClick={() => navigate("/cart")}
-                >
-                  Cart
-                </button>
+                <ButtonGroup className="mb-2">
+                  <Button variant="light" onClick={() => moreBtn()}>
+                    <i className="bi bi-three-dots"></i> More
+                  </Button>
+                  <Button variant="light" onClick={() => navigate("/cart")}>
+                    <i className="bi bi-bag-check"></i> Cart
+                  </Button>
+                </ButtonGroup>
               </div>
             }
           />
@@ -142,14 +140,18 @@ const ShoesList = (props) => {
   const { id, title, price } = props.item;
 
   return (
-    <div className="col-md-4">
+    <div className="col-md-4 mb-3">
       <Link to={`/detail/${id}`}>
-        <img
-          src={`https://codingapple1.github.io/shop/shoes${id + 1}.jpg`}
-          width="80%"
-        />
-        <h4>{title}</h4>
-        <p>{price}</p>
+        <Card className="card">
+          <Card.Img
+            variant="top"
+            src={`https://codingapple1.github.io/shop/shoes${id + 1}.jpg`}
+          />
+          <Card.Body>
+            <Card.Title>{title}</Card.Title>
+            <Card.Text>₩{price}</Card.Text>
+          </Card.Body>
+        </Card>
       </Link>
     </div>
   );

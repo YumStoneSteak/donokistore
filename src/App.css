@@ -1,3 +1,4 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 a {
   text-decoration-line: none;
   color: black;
@@ -43,7 +44,7 @@ a {
 
 .main-bg {
   height: 300px;
-  background-image: url("./asset/bg.png");
+  background: url("./asset/bg.png");
   background-size: cover;
   background-position: center;
 }
@@ -54,4 +55,15 @@ a {
 .end {
   opacity: 1;
   transition: opacity 0.5s;
+}
+.card {
+  transition: all 1s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+.NavLink {
+  color: black;
 }
