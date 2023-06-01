@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/DonokiStore.github.io/static/css/main.bca56285.css",
-    "main.js": "/DonokiStore.github.io/static/js/main.1c6c349c.js",
+    "main.js": "/DonokiStore.github.io/static/js/main.1c1b3fd4.js",
     "static/js/787.b325a249.chunk.js": "/DonokiStore.github.io/static/js/787.b325a249.chunk.js",
     "static/media/pizza_shoe.jpg": "/DonokiStore.github.io/static/media/pizza_shoe.e1b493a7f584ced23b51.jpg",
     "index.html": "/DonokiStore.github.io/index.html",
     "main.bca56285.css.map": "/DonokiStore.github.io/static/css/main.bca56285.css.map",
-    "main.1c6c349c.js.map": "/DonokiStore.github.io/static/js/main.1c6c349c.js.map",
+    "main.1c1b3fd4.js.map": "/DonokiStore.github.io/static/js/main.1c1b3fd4.js.map",
     "787.b325a249.chunk.js.map": "/DonokiStore.github.io/static/js/787.b325a249.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bca56285.css",
-    "static/js/main.1c6c349c.js"
+    "static/js/main.1c1b3fd4.js"
   ]
 }
