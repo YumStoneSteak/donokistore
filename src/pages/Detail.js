@@ -29,6 +29,7 @@ const Detail = (props) => {
           <img
             src={`https://codingapple1.github.io/shop/shoes${id + 1}.jpg`}
             width="100%"
+            alt="bgImage"
           />
         </div>
         <div className="col-md-6">
@@ -40,7 +41,7 @@ const Detail = (props) => {
             className="btn btn-outline-warning"
             onClick={() => dispatch(addCart(props.shoes[url.id]))}
           >
-            <i class="bi bi-bag-plus"></i> 주문하기
+            <i className="bi bi-bag-plus"></i> 주문하기
           </button>
         </div>
       </div>
@@ -51,7 +52,6 @@ const Detail = (props) => {
       >
         <Nav.Item>
           <Nav.Link
-            fill
             eventKey="link0"
             onClick={() => setTap(0)}
             className="NavLink"

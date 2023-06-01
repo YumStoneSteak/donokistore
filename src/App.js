@@ -88,7 +88,7 @@ function App() {
       {sale2Second()}
       <div className="main-bg"></div>
       <div className="main-contents mt-3">
-        <Routes>
+        <Routes basename={process.env.PUBLIC_URL}>
           <Route
             path="/"
             element={
