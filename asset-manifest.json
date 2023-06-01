@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/DonokiStore.github.io/static/css/main.a222c1e2.css",
-    "main.js": "/DonokiStore.github.io/static/js/main.71db71f6.js",
-    "static/js/787.b325a249.chunk.js": "/DonokiStore.github.io/static/js/787.b325a249.chunk.js",
-    "static/media/bg.png": "/DonokiStore.github.io/static/media/bg.616f307c169b743ff920.png",
-    "index.html": "/DonokiStore.github.io/index.html",
-    "main.a222c1e2.css.map": "/DonokiStore.github.io/static/css/main.a222c1e2.css.map",
-    "main.71db71f6.js.map": "/DonokiStore.github.io/static/js/main.71db71f6.js.map",
-    "787.b325a249.chunk.js.map": "/DonokiStore.github.io/static/js/787.b325a249.chunk.js.map"
+    "main.css": "/static/css/main.541971bc.css",
+    "main.js": "/static/js/main.ff4ba3f1.js",
+    "static/js/787.b325a249.chunk.js": "/static/js/787.b325a249.chunk.js",
+    "static/media/bg.png": "/static/media/bg.616f307c169b743ff920.png",
+    "index.html": "/index.html",
+    "main.541971bc.css.map": "/static/css/main.541971bc.css.map",
+    "main.ff4ba3f1.js.map": "/static/js/main.ff4ba3f1.js.map",
+    "787.b325a249.chunk.js.map": "/static/js/787.b325a249.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a222c1e2.css",
-    "static/js/main.71db71f6.js"
+    "static/css/main.541971bc.css",
+    "static/js/main.ff4ba3f1.js"
   ]
 }
