@@ -43,10 +43,15 @@ a {
 }
 
 .main-bg {
-  height: 300px;
-  background: url("./asset/bg.png");
-  background-size: cover;
-  background-position: center;
+  height: 350px;
+  min-height: 200px;
+  width: 60%;
+  margin: 0 20%;
+  background: url("./asset/pizza_shoe.jpg");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: top 80px center;
+  background-attachment: fixed;
 }
 
 .start {
@@ -66,4 +71,6 @@ a {
 }
 .NavLink {
   color: black;
+}
+.salemsg {
 }

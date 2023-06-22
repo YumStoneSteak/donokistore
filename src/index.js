@@ -6,14 +6,19 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./data/store.js";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"; //1번
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const queryClient = new QueryClient(); //2번
+
 root.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
+  <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
+      <BrowserRouter basename="/DonokiStore.github.io">
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </QueryClientProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

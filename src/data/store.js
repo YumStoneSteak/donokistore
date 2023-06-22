@@ -14,7 +14,7 @@ const cart = createSlice({
   reducers: {
     addCount: (state, action) => {
       const item = state.find((item) => item.id === action.payload);
-
+      console.log(item);
       item.count += 1;
     },
     minCount: (state, action) => {
@@ -28,9 +28,11 @@ const cart = createSlice({
     },
     addCart: (state, action) => {
       const data = action.payload;
-      if (state.find((item) => item.id === data)) {
+      console.log(data);
+      const exist = state.find((item) => item.id === data.id);
+      if (exist) {
         console.log("있는데 추가함");
-        addCount(data.id);
+        exist.count += 1;
       } else {
         console.log("없음 새로 추가");
         state.push({
